@@ -1,3 +1,16 @@
+# ====================================================
+# Script Name: utils_SARIS.R
+# Description: Function of utility to run the simulations of article https://arxiv.org/abs/2408.13022
+# Author: Tom Guédon tom.guedondurieu@gmail.com
+# Date: 2024-09
+# Version: 1.0
+#
+# R Version: R version 4.3.3 (2024-02-29 ucrt)
+# Required Packages: None
+# ====================================================
+
+
+
 rm(list=ls())
 
 metropolis = function(alpha, sample_size, burn_in = 100, initial_state = NULL , sigma_prop = NULL, adaptative = TRUE, batch_size = 25){
@@ -467,9 +480,9 @@ SARIS_RMlog = function(K, r0,f0,f1,stepsize, alpha,acc = 0.44){
   
 }
 
-### joint proc 
+### joint procedure
 
-# fonction qui calculent les apramètres de la loi à postérieori des X2
+# fonction qui calculent les paramètres de la loi à postériori des X2
 
 var_post = function(beta,gamma2,sigma2){return(gamma2*sigma2/((beta**2)*gamma2+sigma2))}
 
@@ -493,7 +506,7 @@ grad_gamma = function(xi,mu,gamma_vec){
   
 }
 
-# fonctions qui calclent la vraisemblance complète
+# fonctions qui calculent la vraisemblance complète
 
 complete_llik  = function(yi, beta0, beta, xi, sigma2, mu ,gamma_vec){return(log(dnorm(yi, mean = beta0+t(xi)%*%beta,sd = sqrt(sigma2))) +log( dnorm(xi[1], mean = mu[1], sd = sqrt(gamma_vec[1]))) +log( dnorm(xi[2], mean = mu[2], sd = sqrt(gamma_vec[2])) ))}
 
