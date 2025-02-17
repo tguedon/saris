@@ -1,5 +1,5 @@
 # ====================================================
-# Script Name: utils_SARIS.R
+# Script Name: run_simu_SARIS.R
 # Description: Simulations of the article https://arxiv.org/abs/2408.13022
 # Author: Tom Guédon tom.guedondurieu@gmail.com
 # Date: 2024-09
